@@ -1,0 +1,13 @@
+<h1>movies</h1>
+
+<%= link_to 'add a movie', new_movie_path, :class => 'button' %>
+
+<div class="list">
+  <% @movies.each do |movie| %>
+    <div class="item_modify">
+      <%= link_to edit_movie_path(movie) do %><%= image_tag 'edit-icon.gif', :class => 'edit' %><% end %>
+      <%= link_to movie, method: :delete, data: { confirm: 'Are you sure?' } do %><%= image_tag 'delete.jpg', :class => 'delete' %><% end %>
+    </div>
+    <div class="item_title"><h2 class="movie_title"><%= movie.title %></h2></div>
+    <% end %>
+</div>

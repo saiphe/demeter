@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title, "movie" %><br>
     <%= f.text_field :title %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= image_submit_tag("check.jpeg", :class => 'add') %><%= link_to movies_path do %><%= image_tag 'back.jpeg', :class => 'back' %><% end %>
   </div>
 <% end %>

@@ -14,6 +14,10 @@
   <div class="field">
     <%= f.label :title, "movie" %><br>
     <%= f.text_field :title %>
+    <%= f.collection_select  :include_blank => true %>
+  </div>
+  <div>
+  
   </div>
   <div class="actions">
     <%= image_submit_tag("check.jpeg", :class => 'add') %><%= link_to movies_path do %><%= image_tag 'back.jpeg', :class => 'back' %><% end %>

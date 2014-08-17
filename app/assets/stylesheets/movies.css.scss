@@ -9,10 +9,6 @@ a.button, input.button {
 	font-family:Oswald;
 }
 
-.item_title{
-
-}
-
 .item_modify{
 	float:left;
 	padding-right:15px;
@@ -43,8 +39,19 @@ input.add{
 	height:40px;
 }
 
+#filters {
+	position:relative;
+	top:40px;
+}
+
 .list {
 	padding-top:20px;
+	position:relative;
+	left:-40px;
+	li {
+	list-style-type:none;
+
+	}
 }
 
 #wrapper {

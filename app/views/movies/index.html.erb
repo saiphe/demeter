@@ -1,13 +1,41 @@
+<script type="text/javascript">
+    $(document).ready(function(){  
+      
+        //when a link in the filters div is clicked...  
+        $('#filters a').click(function(e){  
+      
+            //prevent the default behaviour of the link  
+            e.preventDefault();  
+      
+            //get the id of the clicked link(which is equal to classes of our content  
+            var filter = $(this).attr('id');  
+      
+            //show all the list items(this is needed to get the hidden ones shown)  
+            $('.list li').show();  
+      
+            /*using the :not attribute and the filter class in it we are selecting 
+            only the list items that don't have that class and hide them '*/  
+            $('.list li:not(.' + filter + ')').hide();  
+      
+        });  
+      
+    });
+
+ </script>
+
 <h1>movies</h1>
 
 <%= link_to 'add a movie', new_movie_path, :class => 'button' %>
+<div id="filters"><a href='#'>All</a> | <a href="#" id="Blu-Ray">Blu-Ray</a> | <a href="#" id="DVD">DVD</a>
 
-<div class="list">
+<ul class="list">
   <% @movies.each do |movie| %>
-    <div class="item_modify">
-      <%= link_to edit_movie_path(movie) do %><%= image_tag 'edit-icon.gif', :class => 'edit' %><% end %>
-      <%= link_to movie, method: :delete, data: { confirm: 'Are you sure?' } do %><%= image_tag 'delete.jpg', :class => 'delete' %><% end %>
-    </div>
-    <div class="item_title"><h2 class="movie_title"><%= movie.title %></h2>&nbsp;&nbsp;(<%= movie.disc %>)</div>
-    <% end %>
-</div>
+	  <li class="<%= movie.disc %>">
+	    <div class="item_modify">
+	      <%= link_to edit_movie_path(movie) do %><%= image_tag 'edit-icon.gif', :class => 'edit' %><% end %>
+	      <%= link_to movie, method: :delete, data: { confirm: 'Are you sure?' } do %><%= image_tag 'delete.jpg', :class => 'delete' %><% end %>
+	    </div>
+	     <h2 class="movie_title"><%= movie.title %></h2>&nbsp;&nbsp;(<%= movie.disc %>)
+	   </li>
+  <% end %>
+</ul>

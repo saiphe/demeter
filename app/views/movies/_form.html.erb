@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :title, "movie" %><br>
     <%= f.text_field :title %>
-    <%= f.collection_select  :include_blank => true %>
+    <%= f.select :disc, options_for_select(["DVD","Blu-Ray"]) %>
   </div>
   <div>
   

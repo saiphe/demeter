@@ -1,33 +1,23 @@
 <script type="text/javascript">
     $(document).ready(function(){  
-      
-        //when a link in the filters div is clicked...  
-        $('#filters a').click(function(e){  
-      
-            //prevent the default behaviour of the link  
+        $('#filters').bind("change", function(e){    
             e.preventDefault();  
-      
-            //get the id of the clicked link(which is equal to classes of our content  
-            var filter = $(this).attr('id');  
-      
-            //show all the list items(this is needed to get the hidden ones shown)  
+            var filter = $(this).attr('value');   
             $('.list li').show();  
-      
-            /*using the :not attribute and the filter class in it we are selecting 
-            only the list items that don't have that class and hide them '*/  
             $('.list li:not(.' + filter + ')').hide();  
-      
         });  
-      
     });
-
  </script>
 
-<h1>movies</h1>
-
-<%= link_to 'add a movie', new_movie_path, :class => 'button' %>
-<div id="filters"><a href='#'>All</a> | <a href="#" id="Blu-Ray">Blu-Ray</a> | <a href="#" id="DVD">DVD</a>
-
+<div>
+    <h1>movies</h1>
+    <%= link_to 'add a movie', new_movie_path, :class => 'button' %>
+</div>
+<select id="filters">
+    <option value="Blu-Ray, DVD">All</option>
+    <option value="Blu-Ray">Blu-Ray</option>
+    <option value="DVD">DVD</option>
+</select>
 <ul class="list">
   <% @movies.each do |movie| %>
 	  <li class="<%= movie.disc %>">

@@ -7,6 +7,7 @@ a.button, input.button {
 	border-radius: 10px;
 	text-decoration:none;
 	font-family:Oswald;
+	color:#000;
 }
 
 .item_modify{
@@ -75,4 +76,8 @@ input.add{
 	position:relative;
 	top:-5px;
 	left:10px;
+}
+
+select{
+	z-index:1;
 }

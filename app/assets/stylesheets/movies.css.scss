@@ -1,13 +1,11 @@
 
 
-a.button, input.button {
-	background: #8AE62E;
-	padding:10px;
-	border: 3px solid #000;
-	border-radius: 10px;
-	text-decoration:none;
+a.add, input.add {
 	font-family:Oswald;
 	color:#000;
+	display:inline-block;
+	margin-left:30px;
+	text-decoration:none;
 }
 
 .item_modify{
@@ -20,7 +18,7 @@ a.button, input.button {
 .movie_title, label {
 	font-size: 1.5em;
 	display:inline;
-	font-family:Oswald;
+	font-family: Open Sans;
 }
 
 input#movie_title {
@@ -40,19 +38,20 @@ input.add{
 	height:40px;
 }
 
-#filters {
-	position:relative;
-	top:40px;
+.filters{
+	position: relative;
+	top: -62px;
+	left: 240px;
+	p {display:inline-block;}
+	#filters {display:inline-block;}	
 }
 
 .list {
-	padding-top:20px;
 	position:relative;
 	left:-40px;
-	li {
-	list-style-type:none;
-
-	}
+	position: relative;
+	top: -50px;
+	li {list-style-type:none;}
 }
 
 #wrapper {
@@ -80,4 +79,8 @@ input.add{
 
 select{
 	z-index:1;
+}
+
+h1 {
+	display: inline-block;
 }

@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.order('title ASC')
+    @movies = Movie.all.sort_by {|w| w.title.sub(/^the /i, "")}
   end
 
   # GET /movies/1
@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to movies_url, notice: @movie.title + ' has been updated.' }
+        format.html { redirect_to movies_url, notice: @movie.title + ' was updated.' }
         format.json { render :show, status: :ok, location: @movie }
       else
         format.html { render :edit }

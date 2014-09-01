@@ -5,11 +5,8 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     @movies = Movie.all.sort_by {|w| w.title.sub(/^the /i, "")}
-  end
-
-  # GET /movies/1
-  # GET /movies/1.json
-  def show
+    @q = Movie.search(params[:q])
+    @movies = @q.result(distinct: true)
   end
 
   # GET /movies/new

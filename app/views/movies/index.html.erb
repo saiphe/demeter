@@ -14,12 +14,18 @@
     <%= link_to 'add a movie', new_movie_path, :class => 'add' %>
 </div>
 <div class="filters">
-    <p>Filter by disc type:</p>
+    <p>Filter:</p>
     <select id="filters">
         <option value="Blu-Ray, DVD">All</option>
         <option value="Blu-Ray">Blu-Ray</option>
         <option value="DVD">DVD</option>
     </select>
+</div>
+<div class="search">
+<%= search_form_for @q do |f| %>
+    <%= f.label 'search:' %>
+    <%= f.search_field :title_cont %>
+<% end %>
 </div>
 <ul class="list">
   <% @movies.each do |movie| %>

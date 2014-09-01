@@ -40,6 +40,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'devise'
 
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+
 group :production do
 	gem 'pg', '0.15.1'
 	gem 'rails_12factor'

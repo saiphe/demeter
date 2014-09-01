@@ -21,6 +21,8 @@ a.add, input.add {
 	font-family: Open Sans;
 }
 
+.search label {font-size:1em;}
+
 input#movie_title {
 	width:500px;
 	height:35px;
@@ -39,9 +41,6 @@ input.add{
 }
 
 .filters{
-	position: relative;
-	top: -62px;
-	left: 240px;
 	p {display:inline-block;}
 	#filters {display:inline-block;}	
 }

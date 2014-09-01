@@ -10,8 +10,8 @@
  </script>
 
 <div>
-    <h1>movies</h1>
-    <%= link_to 'add a movie', new_movie_path, :class => 'add' %>
+    <h1><%= link_to 'movies', movies_path, :class => 'add' %></h1>
+    <%= link_to 'add more', new_movie_path, :class => 'add' %>
 </div>
 <div class="filters">
     <p>Filter:</p>
@@ -29,7 +29,13 @@
 <% end %>
 </div>
 <ul class="list">
+<% cur_letter = nil %>
   <% @movies.each do |movie| %>
+    <% movie_letter = movie.title.sub(/^the /i, "")[0].capitalize.match(/[A-Z]/) ? movie.title.sub(/^the /i, "")[0].capitalize : "#" %> 
+    <% if movie_letter != cur_letter %>
+        <% cur_letter = movie_letter %>
+        <h1><%= cur_letter %></h1>
+    <% end %>
 	  <li class="<%= movie.disc %>">
 	    <div class="item_modify">
 	      <%= link_to edit_movie_path(movie) do %><%= image_tag 'edit-icon.gif', :class => 'edit' %><% end %>

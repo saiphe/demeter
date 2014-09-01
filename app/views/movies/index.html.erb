@@ -25,6 +25,7 @@
 <%= search_form_for @q do |f| %>
     <%= f.label 'search:' %>
     <%= f.search_field :title_cont %>
+    <%= image_submit_tag("search.png", :class => 'search') %>
 <% end %>
 </div>
 <ul class="list">
